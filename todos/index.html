@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>todos</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="conteiner">
+		<div class="header">
+			Select date
+			<input type="date" onchange="loadEvent()">
+		</div>
+		<div class="context">
+		</div>
+		<div class="footer">
+			<div class="left"></div>
+			<button onclick="loadEvent('all')">All</button>
+			<button onclick="loadEvent('active')">Active</button>
+			<button onclick="loadEvent('completed')">Completed</button>
+		</div>
+	</div>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
