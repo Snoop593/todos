@@ -41,9 +41,15 @@ function loadTodayEvent(){
 }
 
 function addEvent(){
-	data.push({id:data.length+1,date:new Date(inputs[0].value),event:inputs[1].value,checked:false})
-	loadEvent()
-	inputs[1].value=""
+	if(inputs[1].value==""){
+		alert("Заполните поле ввода")
+	}
+	else{
+		data.push({id:data.length+1,date:new Date(inputs[0].value),event:inputs[1].value,checked:false})
+		loadEvent()
+		inputs[1].value=""
+	}
+	
 }
 
 function loadEvent(e){
