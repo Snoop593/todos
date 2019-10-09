@@ -8,8 +8,15 @@
 <body>
 	<div class="conteiner">
 		<div class="header">
-			Select date
-			<input type="date" onchange="loadEvent()">
+			<div class="inputDate">
+				Select date
+				<input type="date" onchange="loadEvent()">
+			</div>
+			<div class="inputEvent">
+				Add event
+				<input type="text">
+			</div>
+			<button onclick="addEvent()">Add</button>
 		</div>
 		<div class="context">
 		</div>

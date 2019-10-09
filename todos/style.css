@@ -17,7 +17,21 @@
 }
 .header{
 	border-bottom: 2px solid black;
-	padding-bottom: 2%;
+	padding-bottom: 7vh;
+}
+.header input{
+	width:100%;
+}
+.header button{
+
+	width: 20%;
+	margin-left: 40%;
+}
+.inputDate{
+	margin-bottom: 2%;
+}
+.inputEvent{
+	margin-bottom: 2%;
 }
 .context{
 	padding: 10% 0 10% 0;
@@ -37,11 +51,4 @@ button{
 	font-size: 3vh;
 	float: left;
 	text-align: center;
-}
-button:first-of-type{
-	width: 13%;
-}
-
-button:last-of-type{
-	width: 33%;
 }

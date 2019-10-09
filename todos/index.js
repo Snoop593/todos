@@ -19,19 +19,18 @@ let event3={
 }
 
 let data = [event1,event2,event3];
-let dateSelect = document.querySelector('input')
+let inputs = document.querySelectorAll('input')
 let context = document.querySelector('.context')
 let left = document.querySelector('.left')
 
 window.onload = ()=>{
-
 	let today =  new Date();
-	dateSelect.valueAsDate = today;
+	inputs[0].valueAsDate = today;
 	loadEvent(today)
 }
 
 function loadTodayEvent(){
-	let selectedDate = new Date(dateSelect.value);
+	let selectedDate = new Date(inputs[0].value);
 	selectedDate.setHours(0,0,0,0);
 	return data.filter(e=>{
 		let com = e.date;
@@ -39,6 +38,12 @@ function loadTodayEvent(){
 		if(com.getTime()===selectedDate.getTime())
 			return e;
 	})
+}
+
+function addEvent(){
+	data.push({id:data.length+1,date:new Date(inputs[0].value),event:inputs[1].value,checked:false})
+	loadEvent()
+	inputs[1].value=""
 }
 
 function loadEvent(e){
