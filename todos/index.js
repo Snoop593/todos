@@ -109,7 +109,7 @@ function addEvent(){
 	}
 	else{
 		data.push({id:data.length+1,date:checkCorrectDate(inputs[0].value),event:inputs[1].value,checked:false})
-		loadEvent()
+		loadEvent(state)
 		inputs[1].value=""
 	}
 }
@@ -155,7 +155,6 @@ function checkCorrectDate(a){
 	d.setFullYear(arr[2]);
 	d.setMonth(arr[0]-1);
 	d.setDate(arr[1]);
-	console.log(d)
 	if(d.getFullYear()==arr[2] && (d.getMonth()+1)==arr[0] && d.getDate()==arr[1]) return d;
 	return false
 }
