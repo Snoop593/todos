@@ -6,27 +6,23 @@
 	<link href="style.css" rel="stylesheet">
 </head>
 <body>
-	<div class="conteiner">
-		<div class="header">
-			<div class="inputDate">
-				Select date
-				<input type="date" onchange="loadEvent()">
-			</div>
-			<div class="inputEvent">
-				Add event
-				<input required type="text">
-			</div>
-			<button onclick="addEvent()">Add</button>
-		</div>
-		<div class="context">
-		</div>
-		<div class="footer">
-			<div class="left"></div>
-			<button onclick="loadEvent('all')">All</button>
-			<button onclick="loadEvent('active')">Active</button>
-			<button onclick="loadEvent('completed')">Completed</button>
-		</div>
-	</div>
+	<header>
+		<div>Введите дату (месяц.день.год): <input class="dateIn" type="text"></div>
+		<div>Введите событие: <input type="text"></div>
+		<div class="error"></div>
+		<div><button onclick="addEvent()">Добавить</button></div>
+	</header>
+	<div class="sort"></div>
+	<section>
+
+	</section>
+	<footer>
+		<div class="item"></div>
+		<div><button onclick="loadEvent('all')">Все</button></div>
+		<div><button onclick="loadEvent('allToday')">На 	день</button></div>
+		<div><button onclick="loadEvent('active')">Активные</button></div>
+		<div><button onclick="loadEvent('completed')">Завершенные</button></div>
+	</footer>
 	<script type="text/javascript" src="index.js"></script>
 </body>
 </html>
