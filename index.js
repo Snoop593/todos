@@ -35,7 +35,6 @@ window.onload = new function(){
 }
 
 function loadEvent(e){
-	var newSelectedId = [];
 	state = e;
 	if(!checkCorrectDate(inputs[0].value)){
 		er.innerHTML="Введите корректную дату"
@@ -79,7 +78,6 @@ function loadEvent(e){
 		el.id = e.id
 		var index = selectedId.indexOf(e.id.toString())
 		if(index!=-1){
-			newSelectedId.push(e.id.toString());
 			el.className+=' selected'
 		}
 		var check = document.createElement("input")
@@ -100,7 +98,6 @@ function loadEvent(e){
 	var len = events.length
 	if(len===0)section.innerHTML = "Таких задач нет!"
 	item.innerHTML = len+ (len>1 ? " items" : " item")+" left"
-	selectedId = newSelectedId;
 }
 
 
@@ -127,11 +124,13 @@ function addEvent(){
 }
 
 function multiDelete(){
-	selectedId.forEach(function(e){
-		deleteEvent(e)
+	selectedId.forEach(function(e,i){
+		if(document.getElementById(e)){
+			deleteEvent(e)
+			selectedId.splice(i,1);
+		}
 	})
-	selectedId.length=0;
-	delButton.style.visibility = "hidden"
+	if(selectedId.length==0) delButton.style.visibility = "hidden"
 }
 
 function addMultiDelete(e){
