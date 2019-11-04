@@ -1,21 +1,25 @@
 *{
 	font-size: 4vh;
 	font-family: Geneva, Arial, Helvetica, sans-serif;
-	color:black;
 }
 body{
-	background-color: #FACC2E;
+	background-color: pink;
 }
 button{
-	text-decoration: none;
-  	background: #DF0101;
-  	padding: 1%;
-  	outline: none;
+	color: #fff; 
+ 	text-decoration: none; 
+ 	user-select: none;
+ 	background: rgb(212,75,56);
+ 	padding: .2em 0.5em; 
   	cursor: pointer;
+
 }
 button:hover{
-  	background: #F5A9A9;
+  	background: rgb(232,95,76); 
 }
+button:active{
+	background: rgb(152,15,0);
+} 
 
 section{
 	width:80%;
@@ -24,7 +28,8 @@ section{
 header{
 	width:80%;
 	margin:0 10% 0 10%;
-	background-color: #B43104;
+	background-color: #0047AB;
+	color:white;
 	border-bottom: 2px solid black;
 	padding-bottom: 1%;
 	border-radius: 50px;
@@ -42,18 +47,19 @@ footer{
 	border-top: 2px solid black;
 }
 footer div{
-	width:14%;
+	width:13,3%;
 	float:left;
 	margin: 0 auto;
 	text-align: center;
-	padding-left: 3vh;
+	margin-right: 3%;
 }
 footer div button{
 	font-size: 3vh;
 	
 }
 .error{
-	color: yellow;
+	color: orange;
+	font-weight: 800;
 }
 .sort{
 	width:80%;
@@ -65,7 +71,7 @@ footer div button{
 	width: 25vh;
 }
 .selected{
-	background-color: rgba(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.5);
 }
 .checked{
 	text-decoration: line-through;
@@ -76,8 +82,19 @@ footer div button{
   	width: 5vh;
 }
 .del{
+	border-radius: 50%;
 	float: right;
+	color: #fff; 
+ 	text-decoration: none; 
+ 	user-select: none;
+ 	background: rgb(212,75,56);
 }
+.del:hover{
+  	background: rgb(232,95,76); 
+}
+.del:active{
+	background: rgb(152,15,0);
+} 
 .date{
 	text-align: center;
 }

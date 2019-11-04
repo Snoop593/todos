@@ -27,6 +27,7 @@ var er = document.querySelector('.error')
 var delButton = document.querySelector('.mulDel')
 var state = ""
 var selectedId = [];
+var globalID = 4;
 
 window.onload = new function(){
 	var today =  new Date();
@@ -63,6 +64,7 @@ function loadEvent(e){
 			break;
 		}
 	}
+	var selectNow = 0;
 	events.sort(function(a,b){return a.date-b.date})
 	for(var i=0;i<events.length;i++){
 		var e = events[i]
@@ -70,6 +72,7 @@ function loadEvent(e){
 			var d = document.createElement("div")
 			d.classList.add('date')
 			d.innerHTML = (e.date.getMonth()+1)+"."+e.date.getDate()+"."+e.date.getFullYear();
+			d.style.borderBottom = "2px solid black"
 			section.appendChild(d)
 		}
 		var el = document.createElement("div")
@@ -79,6 +82,7 @@ function loadEvent(e){
 		var index = selectedId.indexOf(e.id.toString())
 		if(index!=-1){
 			el.className+=' selected'
+			selectNow++;
 		}
 		var check = document.createElement("input")
 		check.type = "checkbox";
@@ -95,6 +99,8 @@ function loadEvent(e){
 		el.appendChild(del)
 		section.appendChild(el)
 	}
+	if(selectNow==0) delButton.style.visibility = "hidden"
+	else delButton.style.visibility = "visible"
 	var len = events.length
 	if(len===0)section.innerHTML = "Таких задач нет!"
 	item.innerHTML = len+ (len>1 ? " items" : " item")+" left"
@@ -117,19 +123,21 @@ function addEvent(){
 		er.innerHTML="Введите корректную дату"
 	}
 	else{
-		data.push({id:data.length+1,date:checkCorrectDate(inputs[0].value),event:inputs[1].value,checked:false})
+		data.push({id:globalID++,date:checkCorrectDate(inputs[0].value),event:inputs[1].value,checked:false})
 		loadEvent(state)
 		inputs[1].value=""
 	}
 }
 
 function multiDelete(){
-	selectedId.forEach(function(e,i){
+	for(var i=0;i<selectedId.length;i++){
+		var e = selectedId[i];
 		if(document.getElementById(e)){
 			deleteEvent(e)
 			selectedId.splice(i,1);
+			i--
 		}
-	})
+	}
 	if(selectedId.length==0) delButton.style.visibility = "hidden"
 }
 
@@ -162,6 +170,7 @@ function deleteEvent(e){
 			break;
 		}
 	}
+
 	data.splice(a,1);
 	loadEvent(state)
 }
